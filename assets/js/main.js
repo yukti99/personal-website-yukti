@@ -28,8 +28,51 @@ function closeMenuAction(){
 }
 navLink.forEach(n => n.addEventListener('click', closeMenuAction))
 
-/*==================== ACCORDION SKILLS ====================*/
+/*==================== AUTOMATING SKILL PERCENTAGE ====================*/
+var skills = {
+    html: '90%',
+    css: '90%',
+    js: '70%',
+    react: '50%',
+    python: '90%',
+    ruby: '80%',
+    java: '75%',
+    node: '60%',
+    firebase: '70%',
+    scikit: '70%',
+    pandas: '80%',
+    numpy: '75%',
+    tensorflow: '60%'
+}
 
+for (const skill in skills) {
+    const skill_name = "skills__" + String(skill)
+    const skill_div =  document.getElementById(skill_name)
+    skill_div.style.width = skills[skill]
+}
+
+/*==================== ACCORDION SKILLS ====================*/
+const skillsContent = document.getElementsByClassName('skills__content'),
+    skillsHeader = document.querySelectorAll('.skills__header')
+
+function toggleSkills(){
+    let itemClass = this.parentNode.className
+    //console.log(itemClass)
+    // close all the skills first
+    for(i=0; i < skillsContent.length; i++){
+        skillsContent[i].className = 'skills__content skills__close'
+    }
+
+    // open the toggled skill
+    if (itemClass === 'skills__content skills__close'){
+        this.parentNode.className = 'skills__content skills__open'
+        console.log(this.parentNode.className)
+    }
+}
+
+skillsHeader.forEach((el) => { 
+    el.addEventListener('click', toggleSkills)
+})
 
 /*==================== QUALIFICATION TABS ====================*/
 
