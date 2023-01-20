@@ -85,7 +85,7 @@ tabs.forEach(tab => {
             tabContent.classList.remove('qualification__active')
         })
         target.classList.add('qualification__active')
-        
+
         tabs.forEach(tab=>{
             tab.classList.remove('qualification__active')
         })
@@ -98,7 +98,20 @@ tabs.forEach(tab => {
 
 
 /*==================== PORTFOLIO SWIPER  ====================*/
+let swiper = new Swiper(".portfolio__container", {
+    cssMode: true,
+    loop: true,
 
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    
+});
 
 /*==================== TESTIMONIAL ====================*/
 
